@@ -1,7 +1,47 @@
 const characterProperties = {
+
   chronicleOptions: [
     {
-      seaOfTime: [],
+      seaOfTime: [
+        {
+          name: "chidler",
+          displayName: "Childer",
+          description: "Embraced within the last 15 years",
+          generations: [
+            "12th",
+            "13th",
+            "14th",
+            "15th",
+            "16th"
+          ],
+          startingExperience: 0
+        },
+        {
+          name: "neonates",
+          displayName: "Neonates",
+          description: "Embraced between 1940 and a decade ago",
+          generations: [
+            "12th",
+            "13th",
+          ],
+          startingExperience: 15
+        },
+        {
+          name: "ancillae",
+          displayName: "Ancillae",
+          description: "Embraced between 1780 and 1940",
+          generations: [
+            "10th",
+            "11th",
+          ],
+          startingExperience: 35,
+          other: [
+            "Each player adds 2 points of Advantages",
+            "Each player adds 2 points of Flaws",
+            { humanity: -1 }
+          ]
+        }
+      ],
     }
   ],
   // CORE CONCEPTS
@@ -349,7 +389,9 @@ const characterProperties = {
           disciplines: [
             "celerity", "potence", "presence"
           ],
-          bane: "The Blood of the Brujah simmers with barely contained rage, explod- ing at the slightest provocation. Subtract dice equal to the Bane Se- verity of the Brujah from any roll to resist fury frenzy. This cannot take the pool below one die."
+          bane: [
+            "The Blood of the Brujah simmers with barely contained rage, exploding at the slightest provocation. Subtract dice equal to the Bane Severity of the Brujah from any roll to resist fury frenzy. This cannot take the pool below one die."
+          ]
         },
         {
           name: "gangrel",
@@ -442,6 +484,7 @@ const characterProperties = {
           }
         },
         {
+          // only available if generation === 14+ ??
           name: "thinBlood",
           displayName: "Thin-Blood",
           disciplines: [
@@ -807,53 +850,109 @@ const characterProperties = {
   // ADVANTAGES & FLAWS
   advantagesAndFlaws: [],
   // BLOOD POTENTCY
-  bloodPotency: [
-    {
-      field: "initialValue",
-      displayName: "initialValue",
-      initialValue: ""
-    },
-    {
-      field: "bloodSurge",
-      displayName: "Blood Surge",
-      initialValue: ""
-    },
-    {
-      field: "powerBonus",
-      displayName: "Power Bonus",
-      initialValue: ""
-    },
-    {
-      field: "feedingPenalty",
-      displayName: "Feeding Penalty",
-      initialValue: ""
-    },
-    {
-      field: "mendAmount",
-      displayName: "Mend Amount",
-      initialValue: ""
-    },
-    {
-      field: "rouseReRoll",
-      displayName: "Rouse Re-Roll",
-      initialValue: ""
-    },
-    {
-      field: "baneSeverity",
-      displayName: "Bane Severity",
-      initialValue: ""
-    },
-  ],
+  bloodPotency: {
+    fields: [
+      {
+        field: "bloodSurge",
+        displayName: "Blood Surge",
+        initialValue: ""
+      },
+      {
+        field: "powerBonus",
+        displayName: "Power Bonus",
+        initialValue: ""
+      },
+      {
+        field: "feedingPenalty",
+        displayName: "Feeding Penalty",
+        initialValue: ""
+      },
+      {
+        field: "mendAmount",
+        displayName: "Mend Amount",
+        initialValue: ""
+      },
+      {
+        field: "rouseReRoll",
+        displayName: "Rouse Re-Roll",
+        initialValue: ""
+      },
+      {
+        field: "baneSeverity",
+        displayName: "Bane Severity",
+        initialValue: ""
+      },
+    ],
+    levels: [
+      // index = blood potency
+      { // bloodPotency = 0
+        bloodSurge: 0,
+        mendAmount: 1,
+        powerBonus: 0,
+        rouseReRoll: 0,
+        baneSeverity: 0,
+        feedingPenalty: ["No effect"]
+      },
+      { // bloodPotency = 1
+        bloodSurge: 1,
+        mendAmount: 1,
+        powerBonus: 0,
+        rouseReRoll: 1,
+        baneSeverity: 1,
+        feedingPenalty: ["No effect"]
+      },
+      { // bloodPotency = 2
+        bloodSurge: 1,
+        mendAmount: 2,
+        powerBonus: 1,
+        rouseReRoll: 1,
+        baneSeverity: 1,
+        feedingPenalty: ["Animal and bagged blood slakes half Hunger"]
+      },
+      { // bloodPotency = 3
+        bloodSurge: 2,
+        mendAmount: 2,
+        powerBonus: 1,
+        rouseReRoll: 2,
+        baneSeverity: 2,
+        feedingPenalty: ["Animal and bagged blood slakes half Hunger"]
+      },
+      { // bloodPotency = 4
+        bloodSurge: 2,
+        mendAmount: 3,
+        powerBonus: 2,
+        rouseReRoll: 2,
+        baneSeverity: 2,
+        feedingPenalty: [
+          "Animal and bagged blood slakes half Hunger",
+          "Slake 1 less Hunger per human"
+        ]
+      },
+      { // bloodPotency = 5
+        bloodSurge: 3,
+        mendAmount: 3,
+        powerBonus: 2,
+        rouseReRoll: 3,
+        baneSeverity: 3,
+        feedingPenalty: [
+          "Animal and bagged blood slakes half Hunger",
+          "Slake 1 less Hunger per human",
+          "Must drain and kill a human to reduce Hunger below 2"
+        ]
+      }
+      // add up to 10 for higher level characters
+    ]
+  },
   // EXPERIENCE
   experience: [
     {
-      field: "total",
-      displayName: "Total",
+      field: "totalExperience",
+      displayName: "Total Experience",
       initialValue: ""
     },
     {
-      field: "spent",
-      displayName: "Spent",
+      field: "spentExperience",
+      displayName: "Spent Experience",
       initialValue: ""
     },
   ],
