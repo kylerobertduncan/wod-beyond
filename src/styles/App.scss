@@ -13,6 +13,10 @@ ul, li, a {
   text-decoration: none;
 }
 
+a {
+  display: inline-block;
+}
+
 nav {
   border: 1px solid red;
 }
@@ -20,4 +24,25 @@ nav {
 .navMenu {
   display: flex;
   justify-content: space-around;
+}
+
+.charTiles {
+  margin: 10px;
+  .charSelectTile {
+    border: 1px solid black;
+    // cursor: pointer;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 200px;
+    a {
+      // display: inline;
+      text-align: center;
+      vertical-align: center;
+      // height: 100%;
+      // width: 100%;
+    }
+  }
 }

@@ -7,21 +7,28 @@ function App() {
   return (
     <Router>
       <div className="App">
+
         <NavBar />
+        
         <main>
-          <Route path="/users">
+
+          <Route path="/selectUser">
             {/* select user view */}
             <SelectUser />
           </Route>
-          <Route path="/:user/characters">
+
+          <Route path="/selectCharacter/:user">
             {/* select character view */}
             <p>which character?</p>
           </Route>
-          <Route path="/:user/:character">
+
+          <Route path="/showCharacter/:user/:character">
             {/* character sheet view */}
             <p>A character sheet!</p>
           </Route>
+
         </main>
+
       </div>
     </Router>
   );
