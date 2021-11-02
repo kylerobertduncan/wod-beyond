@@ -6,7 +6,7 @@ import newCharacterSheet from './newCharacterSheet'
 const SelectCharacter = (props) => {
 
   const { user } = useParams();
-  const { userList } = props;
+  const { userList, setCurrentUser } = props;
   
   const [ charList, setCharList ] = useState([]);
 
@@ -25,6 +25,8 @@ const SelectCharacter = (props) => {
         setCharList(setupCharList);
       }
     });
+    // store current user in state
+    setCurrentUser(user);
   }, [userList])
 
   const handleNewCharacter = () => {
@@ -44,7 +46,7 @@ const SelectCharacter = (props) => {
     const newUserChar = {
       charID: newCharKey,
       name: "New Character",
-      concept: "",
+      concept: "Click to Create",
       clan: ""
     }
     dbUserRef.child(newCharKey).update(newUserChar);
@@ -59,7 +61,7 @@ const SelectCharacter = (props) => {
           const { charID, concept, clan, name } = char;
           return(
             <li key={charID} className="charSelectTile">
-              <Link to={`/characters/${charID}`}>
+              <Link to={`/characters/${user}/${charID}`}>
                 <h3>{name}</h3>
                 <p>{concept}</p>
                 <p>{clan}</p>

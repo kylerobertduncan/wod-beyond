@@ -590,7 +590,7 @@ const characterProperties = {
       field: "craft",
       displayName: "Craft",
       initialValue: 0,
-      specialty
+      specialty: ""
     },
     {
       field: "drive",
@@ -652,7 +652,7 @@ const characterProperties = {
       field: "performance",
       displayName: "Performance",
       initialValue: 0,
-      specialty
+      specialty: ""
     },
     {
       field: "persuasion",
@@ -674,7 +674,7 @@ const characterProperties = {
       field: "academics",
       displayName: "Academics",
       initialValue: 0,
-      specialty
+      specialty: ""
     },
     {
       field: "awareness",
@@ -710,7 +710,7 @@ const characterProperties = {
       field: "science",
       displayName: "Science",
       initialValue: 0,
-      specialty
+      specialty: ""
     },
     {
       field: "technology",

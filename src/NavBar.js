@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = (props) => {
+
+  const { currentUser } = props;
+
   return(
     <nav>
       <ul className="navMenu">
@@ -11,7 +14,13 @@ const NavBar = () => {
           <Link to="/selectUser">Select User</Link>
         </li> 
         <li>
-          <Link to="/selectCharacter">Select Character</Link>
+          {
+            currentUser
+            ?
+            <Link to={`/selectCharacter/${currentUser}`}>Select Character</Link>
+            : 
+            <Link to="/selectUser">Select Character</Link>
+          }
         </li>
       </ul>
     </nav>

@@ -5,10 +5,12 @@ import firebase from './firebase';
 import NavBar from './NavBar';
 import SelectUser from './SelectUser';
 import SelectCharacter from './SelectCharacter';
+import CharacterSheet from './CharacterSheet';
 
 function App() {
 
   const [ userList, setUserList ] = useState([]);
+  const [ currentUser, setCurrentUser ] = useState("");
 
   useEffect(() => {
     // get the user information from firebase
@@ -29,9 +31,14 @@ function App() {
     <Router>
       <div className="App">
 
-        <NavBar />
+        <NavBar currentUser={currentUser}/>
         
         <main>
+
+          {/* select user view */}
+          <Route exact path="/">
+            <h1>Whack-a-Vamp</h1>
+          </Route>
 
           {/* select user view */}
           <Route path="/selectUser">
@@ -40,12 +47,12 @@ function App() {
 
           {/* select character view */}
           <Route path="/selectCharacter/:user">
-            <SelectCharacter userList={userList} />
+            <SelectCharacter userList={userList} setCurrentUser={setCurrentUser} />
           </Route>
 
           {/* character sheet view */}
-          <Route path="/showCharacter/:user/:character">
-            <p>A character sheet!</p>
+          <Route path="/characters/:user/:character">
+            <CharacterSheet />
           </Route>
 
         </main>

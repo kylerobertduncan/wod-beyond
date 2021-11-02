@@ -12,7 +12,7 @@ const newCharacterSheet = {
   sheetData: {
     
     // overview
-    name: "New Character",
+    name: "",
     chronicle: "",
     sire: "",
     concept: "",
