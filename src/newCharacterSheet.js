@@ -12,7 +12,7 @@ const newCharacterSheet = {
   sheetData: {
     
     // overview
-    name: "",
+    name: "New Character",
     chronicle: "",
     sire: "",
     concept: "",
@@ -172,54 +172,54 @@ const newCharacterSheet = {
         powers: []
       }
       */
-    ]
+    ],
+    
+      resonance: "",
+      
+      hunger: 1,
+      
+      humanity: {
+        value: 7,
+        stains: 0
+      },
+      
+      chronicleTenets: [],
+      touchstonesAndConvictions: [],
+      // clanBane: [], // can be generated from data
+    
+      advantagesAndFlaws:[
+        /*
+        // E.G.:
+        {
+          type: "predator1",
+          value: 1,
+          note: "example"
+        },
+        {
+          type: "predator2",
+          value: 2,
+          note: "example"
+        }
+         */
+      ],
+    
+      // blood potency
+      bloodPotency: 1, // other values determined
+    
+      // experience
+      totalExperience: 0,
+      spentExperience: 0,
+    
+      // character details
+      dateOfBirth: 0,
+      dateOfDeath: 0,
+      trueAge: 0,
+      apparentAge: 0,
+      appearance: [],
+      distinguishingFeatures: [],
+      history: [],
+      notes: []
   },
-
-  resonance: "",
-  
-  hunger: 1,
-  
-  humanity: {
-    value: 7,
-    stains: 0
-  },
-  
-  chronicleTenets: [],
-  touchstonesAndConvictions: [],
-  // clanBane: [], // can be generated from data
-
-  advantagesAndFlaws:[
-    /*
-    // E.G.:
-    {
-      type: "predator1",
-      value: 1,
-      note: "example"
-    },
-    {
-      type: "predator2",
-      value: 2,
-      note: "example"
-    }
-     */
-  ],
-
-  // blood potency
-  bloodPotency: 1, // other values determined
-
-  // experience
-  totalExperience: 0,
-  spentExperience: 0,
-
-  // character details
-  dateOfBirth: 0,
-  dateOfDeath: 0,
-  trueAge: 0,
-  apparentAge: 0,
-  appearance: [],
-  distinguishingFeatures: [],
-  history: [],
-  notes: []
 
 }
 

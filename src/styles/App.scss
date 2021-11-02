@@ -3,6 +3,7 @@
 .App {
   font-size: 125%;
   margin: 20px;
+  width: 8.5in;
 }
 
 ul, li, a {
@@ -10,11 +11,8 @@ ul, li, a {
   list-style: none;
   margin: 0;
   padding: 0;
+  text-align: center;
   text-decoration: none;
-}
-
-a {
-  display: inline-block;
 }
 
 nav {
@@ -26,23 +24,26 @@ nav {
   justify-content: space-around;
 }
 
-.charTiles {
-  margin: 10px;
-  .charSelectTile {
+.charTiles,
+.userTiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 20px auto;
+  .charSelectTile,
+  .userSelectTile {
     border: 1px solid black;
-    // cursor: pointer;
-    margin: 20px;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
-    width: 200px;
     a {
-      // display: inline;
-      text-align: center;
-      vertical-align: center;
-      // height: 100%;
-      // width: 100%;
+      width: 100%;
     }
+  }
+  .linkToChar,
+  .linkToUser {
+    padding: 20px;
+    
   }
 }

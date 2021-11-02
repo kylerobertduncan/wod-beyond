@@ -11,7 +11,7 @@ const NavBar = () => {
           <Link to="/selectUser">Select User</Link>
         </li> 
         <li>
-          <Link to="/selectCharacter/:user">Select Character</Link>
+          <Link to="/selectCharacter">Select Character</Link>
         </li>
       </ul>
     </nav>

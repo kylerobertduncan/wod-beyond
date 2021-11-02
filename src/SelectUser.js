@@ -1,58 +1,59 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import firebase from './firebase';
 
-const SelectUser = () => {
+const SelectUser = (props) => {
 
-  const [ userList, setUserList ] = useState([]);
+  const { userList } = props;
 
-  useEffect(() => {
-    const dbRef = firebase.database().ref('users');
-    dbRef.on('value', (response) => {
-      // console.log(response.val());
-      const userData = response.val();
-      const setupUserList = [];
-      for (const user in userData) {
-        // console.log(userData[user]);
-        setupUserList.push(userData[user]);
-      }
-      setUserList(setupUserList);
-    })
-  }, [])
-
-  const handleAddNewUser = () => {
+  const handleNewUser = () => {
+    // ask for a new username
     const newUserName = prompt('Please enter your username:');
+    // check that username has content
     if ( newUserName.trim() !== "" ) {
-      // get dbRef from firebase, and get a new key
-      const dbRef = firebase.database().ref('users');
-      const newUserKey = dbRef.push().key;
-      // add the new user key to the user details
-      const newUserIDobject = {
-        username: newUserName,
-        userID: newUserKey
+      // check to see if username doesn't already exist
+      let usernameExists = false;
+      userList.forEach( (user) => {
+        if ( user.username == newUserName ) {
+          usernameExists = true;
+        }
+      })
+      if (usernameExists) {
+        alert("Error: existing username, please try another")
+      } else {
+        // get dbRef from firebase, and get a new key
+        const dbRef = firebase.database().ref('users');
+        const newUserKey = dbRef.push().key;
+        // add the new user key to the user details
+        const newUserIDobject = {
+          username: newUserName,
+          userID: newUserKey
+        }
+        // add the user details under the new key
+        dbRef.child(newUserKey).update(newUserIDobject);
       }
-      // add the user details under the new key
-      dbRef.child(newUserKey).update(newUserIDobject);
+    } else {
+      alert("Error: invalid username, no content")
     }
   }
   
   return(
     <>
-      <ul className="charTiles">
-        {
-        // Map existing users from Firebase
-        userList.map( (user) => {
-          const { username, userID } = user;
-          return(
-            <li key={userID} className="charSelectTile">
-              <Link to={`/selectCharacter/${userID}`}>{username}</Link>
-            </li>
-          )
-        })
-        }
+    <ul className="userTiles">
+      {
+      // Map existing users from Firebase
+      userList.map( (user) => {
+        const { username, userID } = user;
+        return(
+          <li key={userID} className="userSelectTile">
+            <Link to={`/selectCharacter/${userID}`} className="linkToUser">{username}</Link>
+          </li>
+        )
+      })
+      }
 
-        <li className="charSelectTile newUser" onClick={handleAddNewUser}>Add New User</li>
-      </ul>
+      <li className="userSelectTile linkToUser newUser" onClick={handleNewUser}>Add New User</li>
+    </ul>
     </>
   )
 }
