@@ -37,13 +37,17 @@ const CharacterSheet = () => {
     <div className="characterSheet">
       <h1>Vampire: The Masquerade</h1>
       {/* Overview Section */}
-      <Overview 
+      <Overview className="overview section"
         dataPath={dataPath+'/sheetData'}
         fields={propertyData.overview}
         data={sheetData}
       />
       {/* Attributes Section */}
-      <Attributes />
+      <Attributes className="attributes section"
+        dataPath={dataPath + '/sheetData'}
+        fields={propertyData.attributes}
+        data={sheetData}
+      />
       {/* HealthWill Section */}
       <HealthWill />
       {/* Skills Section */}

@@ -10,13 +10,14 @@ const RenderText = (props) => {
   const { field, displayName, options, initialValue } = fieldData;
   
   const handleChange = (e) => {
+    // update summary data as necessary
     if ( field === "clan" || "concept" || "name" ) {
-      const summaryDataPath = `users/${user}/characters/${character}`;
+      const summaryPath = `users/${user}/characters/${character}`;
       // capture new data
       const newValue = e.target.value;
       // connect to firebase by value & summary path
       const dbValueRef = firebase.database().ref(dataPath);
-      const dbSummaryRef = firebase.database().ref(summaryDataPath);
+      const dbSummaryRef = firebase.database().ref(summaryPath);
       // set new values
       dbValueRef.set(newValue);
       dbSummaryRef.child(field).set(newValue);

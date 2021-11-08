@@ -47,3 +47,28 @@ nav {
     
   }
 }
+
+h2 {
+  text-align: center;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(3, 1fr);
+  width: 100%;
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  input[type="text"] {
+    width: 150px;
+  }
+}
