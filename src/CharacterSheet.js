@@ -15,7 +15,7 @@ const CharacterSheet = () => {
 
   const { character } = useParams();
   const [ characterData, setCharacterData ] = useState({});
-  const dataPath = `characters/${character}/charData`
+  const dataPath = `characters/${character}/charData`;
 
   useEffect(() => {
     // connect to specific character in firebase
@@ -24,7 +24,11 @@ const CharacterSheet = () => {
       // put character data into state
       const dataSnapshot = response.val();
       setCharacterData(dataSnapshot);
-    }))
+    }));
+    return() => {
+      // close .on(value) listener
+      dbCharRef.off();
+    }
   }, [dataPath]);
 
   const { chronicleSettings, sheetData } = characterData;
@@ -34,7 +38,7 @@ const CharacterSheet = () => {
       <h1>Vampire: The Masquerade</h1>
       {/* Overview Section */}
       <Overview 
-        dataPath={dataPath+'/sheetdata'}
+        dataPath={dataPath+'/sheetData'}
         fields={propertyData.overview}
         data={sheetData}
       />

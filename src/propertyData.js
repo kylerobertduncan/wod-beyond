@@ -498,13 +498,41 @@ const characterProperties = {
       field: "generation",
       displayName: "Generation",
       options: [
-        "10th",
-        "11th",
-        "12th",
-        "13th",
-        "14th",
-        "15th",
-        "16th"
+        {
+          displayName: "10th",
+          name: "10th",
+          value: 10
+        },
+        {
+          displayName: "11th",
+          name: "11th",
+          value: 11
+        },
+        {
+          displayName: "12th",
+          name: "12th",
+          value: 12
+        },
+        {
+          displayName: "13th",
+          name: "13th",
+          value: 13
+        },
+        {
+          displayName: "14th",
+          name: "14th",
+          value: 14
+        },
+        {
+          displayName: "15th",
+          name: "15th",
+          value: 15
+        },
+        {
+          displayName: "16th",
+          name: "16th",
+          value: 16
+        }
       ],
       initialValue: ""
     },

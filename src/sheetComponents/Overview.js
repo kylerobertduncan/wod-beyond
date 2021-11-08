@@ -1,6 +1,6 @@
-const Overview = (props) => {
+import RenderText from "./RenderText";
 
-  // console.log(props);
+const Overview = (props) => {
 
   const { data, fields, dataPath } = props;
 
@@ -9,12 +9,19 @@ const Overview = (props) => {
     <h2>Overview</h2>
     <form>
       {
+        data ?
         fields.map( (field) => {
-          console.log(field);
+          const thisField = field.field;
           return(
-            <p key={field.field}>A field</p>
+            <RenderText
+              key={thisField}
+              data={data[thisField]}
+              dataPath={dataPath + "/" + thisField}
+              fieldData={field}
+            />
           )
         })
+        : null
       }
     </form>
     </>
