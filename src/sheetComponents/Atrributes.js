@@ -15,7 +15,7 @@ const Attributes = (props) => {
           return(
             <RenderDots
               key={thisField}
-              value={data[thisField]}
+              data={data[thisField]}
               dataPath={dataPath + "/" + thisField}
               fieldData={field}
             />

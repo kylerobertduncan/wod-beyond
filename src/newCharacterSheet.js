@@ -23,19 +23,41 @@ const newCharacterSheet = {
     generation: "",
 
     // attributes
-    strength: 0,
-    dexterity: 0,
-    stamina: 0,
-    charisma: 0,
-    manipulation: 0,
-    composure: 0,
-    intelligence: 0,
-    wits: 0,
-    resolve: 0,
+    strength: {
+      value: 0
+    },
+    dexterity: {
+      value: 0
+    },
+    stamina: {
+      value: 0
+    },
+    charisma: {
+      value: 0
+    },
+    manipulation: {
+      value: 0
+    },
+    composure: {
+      value: 0
+    },
+    intelligence: {
+      value: 0
+    },
+    wits: {
+      value: 0
+    },
+    resolve: {
+      value: 0
+    },
 
     // health and willpower
-    health: 4,
-    willpower: 3,
+    health: {
+      value: 4
+    },
+    willpower: {
+      value: 3
+    },
     
     // skills
     athletics: {
@@ -176,7 +198,9 @@ const newCharacterSheet = {
     
       resonance: "",
       
-      hunger: 1,
+      hunger: {
+        value: 1
+      },
       
       humanity: {
         value: 7,
@@ -204,7 +228,9 @@ const newCharacterSheet = {
       ],
     
       // blood potency
-      bloodPotency: 1, // other values determined
+      bloodPotency: {
+        value: 1
+      }, // other values determined
     
       // experience
       totalExperience: 0,

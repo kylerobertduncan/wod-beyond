@@ -48,7 +48,7 @@ nav {
   }
 }
 
-h2 {
+h1, h2 {
   text-align: center;
 }
 
@@ -63,6 +63,10 @@ form {
     margin: 0;
     padding: 0;
   }
+}
+
+.skillsForm {
+  grid-template-rows: repeat(9, 1fr);
 }
 
 .field {

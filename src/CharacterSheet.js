@@ -51,7 +51,11 @@ const CharacterSheet = () => {
       {/* HealthWill Section */}
       <HealthWill />
       {/* Skills Section */}
-      <Skills />
+      <Skills className="skills section"
+        dataPath={dataPath + '/sheetData'}
+        fields={propertyData.skills}
+        data={sheetData}
+      />
       {/* Disciplines Section */}
       <Disciplines />
       {/* HungerEtc Section */}
