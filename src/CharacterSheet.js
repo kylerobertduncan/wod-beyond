@@ -40,34 +40,39 @@ const CharacterSheet = () => {
 
       {/* Overview Section */}
       <Overview
+        data={sheetData}
         dataPath={dataPath+'/sheetData'}
         fields={propertyData.overview}
-        data={sheetData}
       />
 
       {/* Attributes Section */}
       <Attributes
+        data={sheetData}
         dataPath={dataPath + '/sheetData'}
         fields={propertyData.attributes}
-        data={sheetData}
       />
 
       {/* HealthWill Section */}
       <HealthWill
+        data={sheetData}
         dataPath={dataPath + '/sheetData'}
         fields={propertyData.healthAndWillpower}
-        data={sheetData}
       />
 
       {/* Skills Section */}
       <Skills
+        data={sheetData}
         dataPath={dataPath + '/sheetData'}
         fields={propertyData.skills}
-        data={sheetData}
       />
 
       {/* Disciplines Section */}
-      <Disciplines />
+      <Disciplines
+        data={sheetData}
+        dataPath={dataPath + '/sheetData'}
+        fields={propertyData.disciplines}
+        clanData={propertyData.clans}
+      />
 
       {/* HungerEtc Section */}
       <HungerEtc />

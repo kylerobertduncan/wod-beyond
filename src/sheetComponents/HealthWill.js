@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect } from "react";
 import firebase from '../firebase';
 import RenderTen from "./RenderTen";
 
@@ -10,9 +10,9 @@ const HealthWill = (props) => {
     // once data is loaded
     if ( data ) {
       // calculate health
-      const calcHealth = data?.stamina.value + 3;
+      const calcHealth = data.stamina.value + 3;
       // calculate willpower
-      const calcWill = data?.composure.value + data?.resolve.value;
+      const calcWill = data.composure.value + data.resolve.value;
       // update character data in firebase 
       const dbRef = firebase.database().ref(dataPath);
       dbRef.child('health/value').set(calcHealth);
