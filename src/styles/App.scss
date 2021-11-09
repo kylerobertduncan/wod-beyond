@@ -76,3 +76,18 @@ form {
     width: 150px;
   }
 }
+
+.healthWillForm {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  width: 100%;
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    label {
+      font-weight: bold;
+    }
+  }
+}
