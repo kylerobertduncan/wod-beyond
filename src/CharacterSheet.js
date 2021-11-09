@@ -35,35 +35,43 @@ const CharacterSheet = () => {
   
   return(
     <div className="characterSheet">
+      
       <h1>Vampire: The Masquerade</h1>
+
       {/* Overview Section */}
       <Overview
         dataPath={dataPath+'/sheetData'}
         fields={propertyData.overview}
         data={sheetData}
       />
+
       {/* Attributes Section */}
       <Attributes
         dataPath={dataPath + '/sheetData'}
         fields={propertyData.attributes}
         data={sheetData}
       />
+
       {/* HealthWill Section */}
       <HealthWill
         dataPath={dataPath + '/sheetData'}
         fields={propertyData.healthAndWillpower}
         data={sheetData}
       />
+
       {/* Skills Section */}
       <Skills
         dataPath={dataPath + '/sheetData'}
         fields={propertyData.skills}
         data={sheetData}
       />
+
       {/* Disciplines Section */}
       <Disciplines />
+
       {/* HungerEtc Section */}
       <HungerEtc />
+
     </div>
   )
 }
