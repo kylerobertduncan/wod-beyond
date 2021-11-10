@@ -70,8 +70,7 @@ const CharacterSheet = () => {
       <Disciplines
         data={sheetData}
         dataPath={dataPath + '/sheetData'}
-        fields={propertyData.disciplines}
-        clanData={propertyData.clans}
+        discInfo={propertyData.disciplines}
       />
 
       {/* HungerEtc Section */}

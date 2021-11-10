@@ -21,12 +21,9 @@ const RenderText = (props) => {
   }
 
   const handleClanChange = (newValue) => {
-    handleSummaryData(newValue);
   // add dependent data to charSheet
-
     // get relevant clan info
     const clanData = fieldData.options.filter( (clan) => clan.displayName === newValue )
-
     // build discipline info array
     const disciplinesArray = [];
     clanData[0].disciplines.forEach( (discipline) => {
@@ -37,24 +34,39 @@ const RenderText = (props) => {
       }
       disciplinesArray.push(disciplineObject)
     })
-    console.log(disciplinesArray);
-
     // pass discArray and bane info to character sheet
     const sheetPath = `characters/${character}/charData/sheetData`;
     const dbSheetRef = firebase.database().ref(sheetPath);
-    dbSheetRef.child('disciplines').update(disciplinesArray);
+    dbSheetRef.child('disciplines/clan').update(disciplinesArray);
     dbSheetRef.child('bane').set(clanData[0].bane);
     // baneInfo = clanData[0].bane;
   }
 
   const handleGenerationChange = (newValue) => {
-    // add dependent data to charSheet
+    // add dependent data to charSheet (blood potency)
+    console.log('add blood potency to charSheet');
     console.log(field, newValue);
   }
 
   const handlePredatorChange = (newValue) => {
-    // add dependent data to charSheet
-    console.log(field, newValue);
+  // add dependent data to charSheet
+    console.log('add adv/flaws, specialities to charSheet');
+    // get relevant predator info
+    const predatorData = fieldData.options.filter((predType) => predType.displayName === newValue)
+    // build predator info array
+    const predDiscArray = [];
+    predatorData[0].disciplineBonus.forEach((discipline) => {
+      const disciplineObject = {
+        name: discipline,
+        value: 0,
+        powers: []
+      }
+      predDiscArray.push(disciplineObject)
+    })
+    // pass discArray and bane info to character sheet
+    const sheetPath = `characters/${character}/charData/sheetData`;
+    const dbSheetRef = firebase.database().ref(sheetPath);
+    dbSheetRef.child('disciplines/predator').update(predDiscArray);
   }
   
   const handleChange = (e) => {
@@ -66,6 +78,7 @@ const RenderText = (props) => {
 
     // if field is clan, update char tile and dependent fields
     if ( field === "clan" ) {
+      handleSummaryData(newValue);
       handleClanChange(newValue);
 
     // if field is gen, update char tile and dependent fields

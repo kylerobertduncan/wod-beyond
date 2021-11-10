@@ -170,31 +170,44 @@ const newCharacterSheet = {
     },
     
     // disciplines
-    disciplines: [
-      /*
-      // E.G.:
-      {
-        name: "clan1",
-        value: 0,
-        powers: []
-      },
-      {
-        name: "clan2",
-        value: 0,
-        powers: []
-      },
-      {
-        name: "clan3",
-        value: 0,
-        powers: []
-      },
-      {
-        name: "predator1",
-        value: 0,
-        powers: []
-      }
-      */
-    ],
+    disciplines: {
+      clan: [
+        {
+          name: "clan1",
+          value: 0,
+          powers: []
+        },
+        {
+          name: "clan2",
+          value: 0,
+          powers: []
+        },
+        {
+          name: "clan3",
+          value: 0,
+          powers: []
+        }
+      ],
+      predator: [
+        {
+          name: "predator1",
+          value: 0,
+          powers: []
+        },
+        {
+          name: "predator2",
+          value: 0,
+          powers: []
+        }
+      ],
+      other: [
+        {
+          name: "other1",
+          value: 0,
+          powers: []
+        }
+      ]
+    },
     
     resonance: "",
     
