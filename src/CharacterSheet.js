@@ -31,7 +31,7 @@ const CharacterSheet = () => {
     }
   }, [dataPath]);
 
-  const { chronicleSettings, sheetData } = characterData;
+  const { sheetData } = characterData;
   
   return(
     <div className="characterSheet">

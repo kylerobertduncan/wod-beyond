@@ -27,7 +27,7 @@ const SelectCharacter = (props) => {
     });
     // store current user in state
     setCurrentUser(user);
-  }, [userList])
+  }, [user, userList, setCurrentUser])
 
   const handleNewCharacter = () => {
     //  connect to firebase and retrieve new key

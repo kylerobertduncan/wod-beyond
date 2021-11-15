@@ -1,11 +1,9 @@
-// import firebase from '../firebase';
-// import RenderDots from "./RenderDots";
+import RenderDiscipline from "./RenderDiscipline";
 
 const Disciplines = (props) => {
   
   const { data, dataPath, discInfo } = props;
-  console.log(discInfo);
-
+  
   return (
     <>
     <h2>Disciplines</h2>
@@ -13,8 +11,15 @@ const Disciplines = (props) => {
       // MAP CLAN DISCIPLINES
       data ?
       data.disciplines.clan.map( (discipline) => {
-        console.log(discipline);
-        // map discInfo for appropriate 
+        // map discInfo for appropriate
+        return(
+          <RenderDiscipline
+            key={discipline.name}
+            discipline={discipline}
+            dataPath={dataPath}
+            discInfo={discInfo}
+          />
+        )
       })
       : null
     }

@@ -14,7 +14,7 @@ const SelectUser = (props) => {
       // check to see if username doesn't already exist
       let usernameExists = false;
       userList.forEach( (user) => {
-        if ( user.username == newUserName ) {
+        if ( user.username === newUserName ) {
           usernameExists = true;
         }
       })

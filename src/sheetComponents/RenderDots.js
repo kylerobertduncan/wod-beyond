@@ -4,7 +4,7 @@ const RenderDots = (props) => {
 
   const { data, dataPath, fieldData} = props;
   const { value } = data;
-  const { field, displayName, initialValue } = fieldData;
+  const { field, displayName } = fieldData;
 
   const handleChange = (e) => {
     // capture new data

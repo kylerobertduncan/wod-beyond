@@ -18,7 +18,7 @@ const HealthWill = (props) => {
       dbRef.child('health/value').set(calcHealth);
       dbRef.child('willpower/value').set(calcWill);
     }
-  }, [data])
+  }, [data, dataPath])
 
   return (
     <>
